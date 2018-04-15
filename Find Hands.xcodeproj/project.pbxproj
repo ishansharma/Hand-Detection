@@ -12,7 +12,7 @@
 		864570F22083A7A400B09956 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 864570F02083A7A400B09956 /* Main.storyboard */; };
 		864570F42083A7A600B09956 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 864570F32083A7A600B09956 /* Assets.xcassets */; };
 		864570F72083A7A600B09956 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 864570F52083A7A600B09956 /* LaunchScreen.storyboard */; };
-		864570FF2083DB3B00B09956 /* Resnet50.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 864570FE2083DB3B00B09956 /* Resnet50.mlmodel */; };
+		864571012083EF3D00B09956 /* hands_cnn.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 864571002083EF3D00B09956 /* hands_cnn.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,7 +23,7 @@
 		864570F32083A7A600B09956 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		864570F62083A7A600B09956 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		864570F82083A7A600B09956 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		864570FE2083DB3B00B09956 /* Resnet50.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Resnet50.mlmodel; sourceTree = "<group>"; };
+		864571002083EF3D00B09956 /* hands_cnn.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = hands_cnn.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,7 +62,7 @@
 				864570F32083A7A600B09956 /* Assets.xcassets */,
 				864570F52083A7A600B09956 /* LaunchScreen.storyboard */,
 				864570F82083A7A600B09956 /* Info.plist */,
-				864570FE2083DB3B00B09956 /* Resnet50.mlmodel */,
+				864571002083EF3D00B09956 /* hands_cnn.mlmodel */,
 			);
 			path = "Find Hands";
 			sourceTree = "<group>";
@@ -139,7 +139,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				864570EF2083A7A400B09956 /* ViewController.swift in Sources */,
-				864570FF2083DB3B00B09956 /* Resnet50.mlmodel in Sources */,
+				864571012083EF3D00B09956 /* hands_cnn.mlmodel in Sources */,
 				864570ED2083A7A400B09956 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

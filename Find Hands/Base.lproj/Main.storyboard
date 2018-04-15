@@ -19,13 +19,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hsP-n9-Yln">
-                                <rect key="frame" x="0.0" y="20" width="375" height="599"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="558"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b8E-4d-5dE">
-                                <rect key="frame" x="0.0" y="627" width="375" height="40"/>
+                                <rect key="frame" x="0.0" y="586" width="375" height="80"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="8Qw-mR-utb"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="80" id="cZc-A2-Oeb"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -41,7 +41,7 @@
                             <constraint firstItem="b8E-4d-5dE" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="gNc-PM-vff"/>
                             <constraint firstAttribute="trailing" secondItem="hsP-n9-Yln" secondAttribute="trailing" id="gqG-0w-9b0"/>
                             <constraint firstItem="b8E-4d-5dE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="wIb-hR-MSE"/>
-                            <constraint firstItem="b8E-4d-5dE" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="ytz-HD-ThD"/>
+                            <constraint firstItem="b8E-4d-5dE" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-1" id="ytz-HD-ThD"/>
                             <constraint firstItem="b8E-4d-5dE" firstAttribute="top" secondItem="hsP-n9-Yln" secondAttribute="bottom" constant="8" id="zzi-dq-osd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>

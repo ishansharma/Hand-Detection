@@ -67,13 +67,13 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         }
         
         // setup the vision framework requests
-        guard let visionModel = try? VNCoreMLModel(for: Resnet50().model) else {
+        guard let visionModel = try? VNCoreMLModel(for: hands_cnn().model) else {
             fatalError("Error while loading model")
         }
         
         classificationText.text = "Model loaded"
         
-        // setup request using Resnet50 model
+        // setup request using custom trained model
         let classifierRequest = VNCoreMLRequest(model: visionModel, completionHandler: processClassifications)
         classifierRequest.imageCropAndScaleOption = .centerCrop
         visionRequests = [classifierRequest]
