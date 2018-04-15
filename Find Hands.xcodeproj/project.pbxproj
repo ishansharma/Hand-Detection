@@ -24,6 +24,7 @@
 		864570F62083A7A600B09956 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		864570F82083A7A600B09956 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		864571002083EF3D00B09956 /* hands_cnn.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = hands_cnn.mlmodel; sourceTree = "<group>"; };
+		864571022083F40F00B09956 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +41,7 @@
 		864570E02083A7A400B09956 = {
 			isa = PBXGroup;
 			children = (
+				864571022083F40F00B09956 /* README.md */,
 				864570EB2083A7A400B09956 /* Find Hands */,
 				864570EA2083A7A400B09956 /* Products */,
 			);
