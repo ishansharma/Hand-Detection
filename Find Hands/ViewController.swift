@@ -119,9 +119,10 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
             return
         }
         
-        let classifications = observations[0...2] // get top 4 results
+        let classifications = observations[0...2] // get top 2 results
             .compactMap({ $0 as? VNClassificationObservation })
-            .map({ "\($0.identifier) \($0.confidence * 100.0).rounded())" })
+            .compactMap({ $0.confidence > 0.03 ? $0 : nil })
+            .map({ "\($0.identifier) \(String(format: "%.2f", $0.confidence))" })
             .joined(separator: "\n")
         
         DispatchQueue.main.async{
