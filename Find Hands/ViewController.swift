@@ -7,9 +7,15 @@
 //
 
 import UIKit
+import AVFoundation
+import Vision
 
-class ViewController: UIViewController {
-
+class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
+    // connections for the views
+    @IBOutlet weak var classificationText: UILabel!
+    @IBOutlet weak var cameraView: UIView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
