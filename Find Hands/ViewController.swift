@@ -24,6 +24,9 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
     // preview layer to display the came input
     var previewDisplayLayer: AVCaptureVideoPreviewLayer!
     
+    // vision request
+    var visionRequests = [VNRequest]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -57,9 +60,23 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
             
             // initiate session
             cameraViewSession.startRunning()
+            
+            classificationText.text = "AV Session Initialized. Searching for hands..."
         } catch _ {
             fatalError("Could not capture camera input")
         }
+        
+        // setup the vision framework requests
+        guard let visionModel = try? VNCoreMLModel(for: Resnet50().model) else {
+            fatalError("Error while loading model")
+        }
+        
+        classificationText.text = "Model loaded"
+        
+        // setup request using Resnet50 model
+        let classifierRequest = VNCoreMLRequest(model: visionModel, completionHandler: processClassifications)
+        classifierRequest.imageCropAndScaleOption = .centerCrop
+        visionRequests = [classifierRequest]
     }
     
     override func viewDidLayoutSubviews() {
@@ -70,6 +87,46 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
+        guard let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else {
+            return
+        }
+        
+        var requestOptions:[VNImageOption: Any] = [:]
+        if let cameraData = CMGetAttachment(sampleBuffer, kCMSampleBufferAttachmentKey_CameraIntrinsicMatrix, nil) {
+            requestOptions = [.cameraIntrinsics: cameraData]
+        }
+        
+        let imageRequestHandler = VNImageRequestHandler(cvPixelBuffer: pixelBuffer, options: requestOptions)
+        
+        do {
+            try imageRequestHandler.perform(self.visionRequests)
+        } catch {
+            print(error)
+        }
+    }
+    
+    func processClassifications(request: VNRequest, error: Error?) {
+        if let theError = error {
+            print("Error: \(theError.localizedDescription)")
+            return
+        }
+        
+        guard let observations = request.results else {
+            print("No results")
+            return
+        }
+        
+        let classifications = observations[0...2] // get top 4 results
+            .compactMap({ $0 as? VNClassificationObservation })
+            .map({ "\($0.identifier) \($0.confidence * 100.0).rounded())" })
+            .joined(separator: "\n")
+        
+        DispatchQueue.main.async{
+            self.classificationText.text = classifications
+        }
     }
 
 
